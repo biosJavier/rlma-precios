@@ -25,8 +25,12 @@ namespace RLMA_Precios
         private void clasificacionesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Console.WriteLine("prueba");
-            clasificacionesForm f1 = new clasificacionesForm();
+          
+        }
 
+        private void actualizarComprasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            clasificacionesForm f1 = new clasificacionesForm();
             f1.Show();
         }
     }

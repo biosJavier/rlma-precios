@@ -19,10 +19,10 @@ namespace RLMA_Precios
 
         private void find_Click(object sender, EventArgs e)
         {
-            Console.Write(valCalendar.SelectionStart.Date.ToShortDateString());
-            Console.WriteLine("hola mundo2");
-            Connection p = new Connection();
-            p.ConnectionMethod();
+            string date=valCalendar.SelectionStart.Date.ToString("yyyy-MM-dd");
+            Console.WriteLine("________________________________________________");
+            Connection p = new Connection(date);
+            p.prueba();
 
         }
 

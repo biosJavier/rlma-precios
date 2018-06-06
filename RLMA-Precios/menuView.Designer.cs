@@ -57,6 +57,7 @@
             this.actualizarComprasToolStripMenuItem.Name = "actualizarComprasToolStripMenuItem";
             this.actualizarComprasToolStripMenuItem.Size = new System.Drawing.Size(120, 20);
             this.actualizarComprasToolStripMenuItem.Text = "Actualizar compras";
+            this.actualizarComprasToolStripMenuItem.Click += new System.EventHandler(this.actualizarComprasToolStripMenuItem_Click);
             // 
             // menuView
             // 
