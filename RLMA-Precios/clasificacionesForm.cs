@@ -20,7 +20,7 @@ namespace RLMA_Precios
         private void find_Click(object sender, EventArgs e)
         {
             Console.Write(valCalendar.SelectionStart.Date.ToShortDateString());
-            Console.WriteLine("hola mundo");
+            Console.WriteLine("hola mundo2");
             Connection p = new Connection();
             p.ConnectionMethod();
 
@@ -28,7 +28,7 @@ namespace RLMA_Precios
 
         private void find_MouseClick(object sender, MouseEventArgs e)
         {
-            Console.WriteLine("prueba2");
+            Console.WriteLine("prueba22");
         }
     }
 }
