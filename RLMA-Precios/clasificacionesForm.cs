@@ -97,7 +97,8 @@ namespace RLMA_Precios
         }
 
 
-        public void updateProdutsRun(string code,int p1,int p2, int p3, int p4, int p5, int p6, int p7, int p8, int p9, int p10)
+        public void updateProdutsRun(string code,string p1, string p2, string p3, string p4, string p5,
+            string p6, string p7, string p8, string p9, string p10)
         {
 
             cn = new OdbcConnection("Dsn=pape");
@@ -127,16 +128,39 @@ namespace RLMA_Precios
         public void runTable()
         {
             int cont =updateTable.Rows.Count;
+            while (updateTable.Rows.Count>0) { 
             if (cont == 0){
                 MessageBox.Show("Ya no hay registros en la tabla", "Encontrado",
 MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
                 message.Text = "Datos cargados";
+                break;
             }
             else
             {
+                string code= updateTable.Rows[0].Cells[0].Value.ToString();
+                string p1 = updateTable.Rows[0].Cells[2].Value.ToString();
+                string p2 = updateTable.Rows[0].Cells[3].Value.ToString();
+                string p3 = updateTable.Rows[0].Cells[4].Value.ToString();
+                string p4 = updateTable.Rows[0].Cells[5].Value.ToString();
+                string p5 = updateTable.Rows[0].Cells[6].Value.ToString();
+                string p6 = updateTable.Rows[0].Cells[7].Value.ToString();
+                string p7 = updateTable.Rows[0].Cells[8].Value.ToString();
+                string p8 = updateTable.Rows[0].Cells[9].Value.ToString();
+                string p9 = updateTable.Rows[0].Cells[10].Value.ToString();
+                string p10 = updateTable.Rows[0].Cells[11].Value.ToString();
+                updateProdutsRun(code,p1,p2,p3,p4,p5,p6,p7,p8,p9,p10);
+                Console.WriteLine(code);
+                Console.WriteLine("***********************************************************************************++");
                 updateTable.Rows.RemoveAt(0);
             }
-            
+
+            }
+
+            MessageBox.Show("Exito Carlitos", "Productos actualizados",
+MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
+            message.Text = "Datos cargados";
+            this.Close();
+
         }
         private void label1_Click(object sender, EventArgs e)
         {
@@ -145,7 +169,7 @@ MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            //UPDATE MGW10005 SET cprecio1=cTemp2.NUEVOPRECIO1,cprecio2=cTemp2.NUEVOPRECIO2,cprecio3=cTemp2.NUEVOPRECIO3,cprecio4=cTemp2.NUEVOPRECIO4,cprecio5=cTemp2.NUEVOPRECIO5,cprecio6=cTemp2.NUEVOPRECIO6,cprecio7=cTemp2.NUEVOPRECIO7,cprecio8=cTemp2.NUEVOPRECIO8,cprecio9=cTemp2.NUEVOPRECIO9,cprecio10=cTemp2.NUEVOPRECIO10 WHERE PRODUCTOS.ccodigop01=cTemp2.CODIGO
             runTable();
         }
     }
